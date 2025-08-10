@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: phone-cleaner-denis
+    runtime: dotnet
+    plan: free
+    buildCommand: "dotnet restore && dotnet publish -c Release"
+    startCommand: "dotnet ./bin/Release/net8.0/PhoneCleaner.dll"
+    envVars:
+      - key: ASPNETCORE_URLS
+        value: "http://0.0.0.0:${PORT}"
